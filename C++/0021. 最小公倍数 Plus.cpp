@@ -1,6 +1,7 @@
 // we have defined the necessary header files here for this problem.
 // If additional header files are needed in your program, please import here.
-#include<vector>
+#include <vector>
+#include <limits.h>
 int main()
 {  
   // please define the C++ input here. For example: int a,b; cin>>a>>b;;  
@@ -21,31 +22,39 @@ int main()
                 num.push_back(temp);
             }
         }
+        
+        int temp = 1;
         string s1 = "1";
-        int l1,l2;
         for(auto x:num){
-            string s2 = to_string(x);
-            l1 = s1.size();
-            l2 = s2.size();
-            string res(l1+l2,0);
-            for(int i=l1-1;i>=0;--i){
-                for(int j=l2-1;j>=0;--j){
-                    res[i+j+1] += (s1[i]-'0')*(s2[j]-'0');
-                    res[i+j] += res[i+j+1]/10;
-                    res[i+j+1] %= 10;
+            if(INT_MAX/temp<x){
+                temp *= x;
+                s1 = to_string(temp);
+            }
+            else{
+                int l1,l2;
+                string s2 = to_string(x);
+                l1 = s1.size();
+                l2 = s2.size();
+                string res(l1+l2,0);
+                for(int i=l1-1;i>=0;--i){
+                    for(int j=l2-1;j>=0;--j){
+                        res[i+j+1] += (s1[i]-'0')*(s2[j]-'0');
+                        res[i+j] += res[i+j+1]/10;
+                        res[i+j+1] %= 10;
+                    }
                 }
-            }
-            
-            for(auto& c:res){
+                for(auto& c:res){
                 c += '0';
-            }
+                }
             
-            int id = 0;
-            while(res[id] == '0'){
-                id++;
+                int id = 0;
+                while(res[id] == '0'){
+                    id++;
+                }
+                s1 = res.substr(id);
             }
-            s1 = res.substr(id);
         }
+
         cout<<s1<<endl;
     }
     
