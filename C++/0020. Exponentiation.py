@@ -6,12 +6,6 @@ int main(){
         int deci = (s1.size()-1-id)*n;
         s1 = s1.substr(0,id) + s1.substr(id+1);
         
-        int i = 0;
-        while(s1[i]=='0'){
-            i += 1;
-        }
-        s1 = s1.substr(i);
-        
         int l1 = s1.size();
         string s2 = s1;
         while(n>1){
@@ -41,7 +35,7 @@ int main(){
         }
         s2 = s2.substr(0,s2.size()-deci)+"."+s2.substr(s2.size()-deci);
         
-        i = s2.size()-1;
+        int i = s2.size()-1;
         while(i>s2.size()-deci and s2[i]=='0'){
             i--;
         }
