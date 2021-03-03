@@ -6,23 +6,14 @@ def func():
     # please define the python3 output here. For example: print().
     while True:
         try:
-            n = int(input())
-            
-            def dfs(num,index,s):
-                res = 0
+            n = int(input())        
+            def dfs(num,index,s):                
                 if num == 0:
-                    print(str(n)+'='+s[1:])
-                    return 1
+                    print(str(n)+'='+s[1:])                   
                 for i in range(index,num+1):
-                    res += dfs(num-i,i,s+"+"+str(i))
-
-                return res
-            
+                    dfs(num-i,i,s+"+"+str(i))            
             dfs(n,1,"")
-                
-            
-            
-            
+       
         except EOFError:
             break
     
