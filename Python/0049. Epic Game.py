@@ -3,8 +3,6 @@
 def gcd(a,b):
     if b == 0:
         return float('inf')
-    if b > a:
-        a,b = b,a
     while(a%b != 0):
         a = a%b
         if b > a:
