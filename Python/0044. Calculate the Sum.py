@@ -19,8 +19,7 @@ def func():
 
                 for c in m:
                     for i in dict_n:
-                        if int(c)%int(i)!=0:    
-                            res += (int(c)%int(i))*dict_n[i]
+                        res += (int(c)%int(i))*dict_n[i]
                 print(res)
 
         except EOFError:
