@@ -22,7 +22,7 @@ int main()
     while(cin>>k){
         int res = (1<<31)-1;
         
-        for(int i=1;i<=k;++i){
+        for(int i=1;i<=k/2+1;++i){
             res = min(res,recursive(k,i));
         }
         
